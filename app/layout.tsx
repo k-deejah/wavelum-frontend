@@ -27,7 +27,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SkipLink />
+        <AriaLiveRegion />
+        <div id="main-content" role="main">
+          {children}
+        </div>
       </body>
     </html>
   );
