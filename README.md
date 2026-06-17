@@ -36,8 +36,8 @@ The frontend never holds private keys. Read traffic flows to the backend API and
 
 ## Prerequisites
 
-- **Node.js 18 or newer** (the CI pipeline builds on Node 18)
-- **npm 9 or newer** (ships with Node 18+)
+- **Node.js 20.9 or newer** (required by Next.js 16; the CI pipeline builds on Node 20)
+- **npm 10 or newer** (ships with Node 20+)
 - A Stellar wallet for testing on-chain flows, for example [Freighter](https://www.freighter.app/)
 
 Check your versions:
