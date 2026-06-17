@@ -23,8 +23,7 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>): Pro
   };
 }
 
-export default async function LocaleLayout({ children, params }: Props) {
-  const { locale } = await params;
+export default async function LocaleLayout({ children }: Props) {
   const messages = await getMessages();
 
   return (
