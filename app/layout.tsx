@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { SkipLink } from '@/src/components/ui/SkipLink';
 import { AriaLiveRegion } from '@/src/components/ui/AriaLiveRegion';
+import { ErrorBoundary } from '@/src/components/errors/ErrorBoundary';
+import { ToastProvider } from '@/src/components/ui/Toast';
 import './globals.css';
 
 const geistSans = Geist({
@@ -29,11 +31,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SkipLink />
-        <AriaLiveRegion />
-        <div id="main-content" role="main">
-          {children}
-        </div>
+        <ErrorBoundary>
+          <ToastProvider>
+            <SkipLink />
+            <AriaLiveRegion />
+            <div id="main-content" role="main">
+              {children}
+            </div>
+          </ToastProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );
