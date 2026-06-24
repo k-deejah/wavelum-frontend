@@ -3,7 +3,7 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import * as Sentry from '@sentry/nextjs';
 import { ArrowsClockwise, ArrowClockwise, BugBeetle } from '@phosphor-icons/react';
-import { type ErrorSeverity } from '@/src/lib/errors';
+import { type ErrorSeverity } from '@/lib/errors';
 
 /* -------------------------------------------------------------------------- */
 /*  Sentry severity mapping                                                   */
