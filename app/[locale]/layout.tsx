@@ -2,6 +2,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { LocaleSwitcher } from '@/src/components/ui/LocaleSwitcher';
+import { ToastProvider } from '@/src/components/ui/Toast';
+import { ErrorBoundary } from '@/src/components/errors/ErrorBoundary';
 import type { Metadata } from 'next';
 
 type Props = {
@@ -28,8 +30,12 @@ export default async function LocaleLayout({ children }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <LocaleSwitcher />
-      {children}
+      <ErrorBoundary>
+        <ToastProvider>
+          <LocaleSwitcher />
+          {children}
+        </ToastProvider>
+      </ErrorBoundary>
     </NextIntlClientProvider>
   );
 }
