@@ -1,6 +1,11 @@
+import createBundleAnalyzer from '@next/bundle-analyzer';
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 import { withSentryConfig } from '@sentry/nextjs';
+
+const withBundleAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -72,3 +77,4 @@ if (process.env.NODE_ENV === 'production' && process.env.SENTRY_AUTH_TOKEN) {
 }
 
 export default exportedConfig;
+export default withBundleAnalyzer(withNextIntl(nextConfig));

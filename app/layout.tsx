@@ -5,18 +5,22 @@ import { AriaLiveRegion } from '@/src/components/ui/AriaLiveRegion';
 import { ErrorBoundary } from '@/src/components/errors/ErrorBoundary';
 import { ToastProvider } from '@/src/components/ui/Toast';
 import { WebVitals } from '@/src/components/ui/WebVitals';
+
+import { AriaLiveRegion, SkipLink, WebVitals } from '@/components/ui';
 import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
   display: 'swap',
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
   display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
